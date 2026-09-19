@@ -1,0 +1,68 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Compiled extensions — built per machine and per GPU architecture, never committed.
+# See env/README.md and third_party/README.md.
+*.so
+*.o
+
+
+# Environments
+.venv/
+venv/
+env/bin/
+env/lib/
+env/share/
+.conda/
+
+# Checkpoints: 8.2 GiB, fetched by ckpts/fetch_ckpts.sh. The directory's own
+# README and fetch script are tracked; nothing that lands in it is.
+ckpts/*
+!ckpts/README.md
+!ckpts/fetch_ckpts.sh
+
+# Data and outputs. The pipeline writes meshes, voxel grids and saliency
+# fields next to the inputs; none of it belongs in the repo.
+*.ply
+*.vxz
+*.npz
+*.glb
+# ...but the bundled worked example must ship with the repository.
+!example/*.glb
+
+# example/work/ is tracked: it is the worked example's output, and it doubles as the
+# single-object training set the four entry points run against. What is excluded is the
+# half of it that is bulky and regenerable -- the five 79 MB meshes (run_watertight.sh
+# rebuilds them in ~2.5 min) and the 114 MB per-vertex saliency (a_spectral_saliency.py,
+# ~25 s). What ships is the 31 MB that cannot be regenerated without the checkpoints:
+# tokens, stage 1 codes, both conditionings, the supervoxel centers and the renders.
+!example/work/
+!example/work/**
+example/work/geo/*.ply
+example/work/sal/
+example/work/dataset/
+example/work/flex_gemm/
+# d_lap_vxz.py's sharded-queue scaffolding, written wherever it runs. Never an artifact.
+example/work/**/.lap_q/
+example/work/**/.lap_list
+example/out/
+*.obj
+results/
+outputs/
+_run/
+
+# Upstream sources that build_third_party.sh clones and builds. They are not
+# vendored here on purpose -- see third_party/README.md, which pins the commit
+# each extension was built from.
+third_party/src/
+
+# Editors / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store

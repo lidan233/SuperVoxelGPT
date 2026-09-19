@@ -1,0 +1,53 @@
+SuperVoxelGPT
+Copyright 2026 Yuan Li, Congyi Zhang, Xifeng Gao, Xiaohu Guo
+
+This product includes software developed by third parties, listed below with the
+notices their licenses require. Everything else in this repository is covered by
+the MIT License in LICENSE.
+
+--------------------------------------------------------------------------------
+TRELLIS.2 — https://github.com/microsoft/TRELLIS.2
+
+    MIT License
+    Copyright (c) Microsoft Corporation.
+
+Vendored in train/vendor/trellis2/: the sparse tensor type and the layers built
+on it. train/vendor/trellis2/README.md lists which of those files are unmodified
+and which are not. The o_voxel extension, fetched by
+third_party/build_third_party.sh and shipped prebuilt in train/vendor/runtime/,
+also comes from this project.
+
+--------------------------------------------------------------------------------
+FlexGEMM — https://github.com/JeffreyXiang/FlexGEMM
+
+    MIT License
+    Copyright (c) 2025 Jianfeng Xiang
+
+Not vendored as source. Fetched and built by third_party/build_third_party.sh,
+and shipped prebuilt in train/vendor/runtime/flex_gemm/.
+
+--------------------------------------------------------------------------------
+CuMesh — https://github.com/JeffreyXiang/CuMesh
+
+Not vendored as source. Fetched and built by third_party/build_third_party.sh,
+and shipped prebuilt in train/vendor/runtime/cumesh/. It links xatlas and a BVH
+implementation, which carry their own notices in that project.
+
+--------------------------------------------------------------------------------
+FlexiCubes — https://github.com/nv-tlabs/FlexiCubes
+
+    Apache License 2.0
+    Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES.
+
+Vendored in data/data_prep/1_geometry/step1_watertight/FlexiCubes/, unmodified:
+the differentiable isosurface extraction used in the sharpening step. Each file
+carries the Apache 2.0 header the license requires.
+
+--------------------------------------------------------------------------------
+Eigen — https://gitlab.com/libeigen/eigen
+
+    MPL 2.0
+
+A build-time dependency of o_voxel, pulled in as a submodule when
+third_party/build_third_party.sh clones TRELLIS.2. Not redistributed here as
+source; the prebuilt o_voxel extension links it.
