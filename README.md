@@ -64,7 +64,7 @@ faster still with 1024 resolution.
       100k shapes, a larger codebook, and a model past 0.5B, together with more
       robustness to noisy input. The tokenizer is what makes a corpus that size
       affordable, so this is a scale-up rather than a redesign. Planned for the
-      next allocation on the Tencent / UTD clusters.
+      next allocation on the LightSpeed / UTD clusters.
 
 ## Environment
 
