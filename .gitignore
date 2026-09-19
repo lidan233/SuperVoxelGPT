@@ -6,10 +6,14 @@ __pycache__/
 build/
 dist/
 
-# Compiled extensions — built per machine and per GPU architecture, never committed.
-# See env/README.md and third_party/README.md.
+# Compiled extensions — built per machine and per GPU architecture, so they are not
+# committed. See env/README.md and third_party/README.md.
 *.so
 *.o
+# ...except the CVT kernel, which ships prebuilt: it is small, it is built from the
+# .cu source sitting beside it, and pycvt.load_kernel() recompiles it in place when
+# this binary does not load on the machine at hand.
+!train/vendor/runtime/pycvt/soft_cvt_clean.so
 
 
 # Environments
